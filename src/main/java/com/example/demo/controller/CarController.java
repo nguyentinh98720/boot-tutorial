@@ -28,7 +28,7 @@ public class CarController {
     @Autowired
     private CarService service;
 
-    private static final String LIST_PAGE_REDIRECTED = "redirect:/car";
+    private static final String REDIRECTING_PAGE = "redirect:/car";
 
     @GetMapping
     public String getListOfCar(Model model) {
@@ -46,13 +46,13 @@ public class CarController {
     @PostMapping("/add")
     public String afterAddingNewCar(@ModelAttribute("car") CarDto dto) {
         service.createNewCar(dto);
-        return LIST_PAGE_REDIRECTED;
+        return REDIRECTING_PAGE;
     }
 
     @PostMapping("/remove/{id}")
     public String afterRemovingCar(@PathVariable Long id) {
         service.removeExistingCar(id);
-        return LIST_PAGE_REDIRECTED;
+        return REDIRECTING_PAGE;
     }
 
     @GetMapping("/update/{id}")
@@ -66,6 +66,6 @@ public class CarController {
     public String afterUpdatingCar(@ModelAttribute("car") CarDto dto, @PathVariable Long id) {
         dto.setId(id);
         service.updateExistingCar(dto);
-        return LIST_PAGE_REDIRECTED;
+        return REDIRECTING_PAGE;
     }
 }
