@@ -21,6 +21,7 @@
     <properties>
         <java.version>11</java.version>
         <mapstruct.version>1.5.3.Final</mapstruct.version>
+        <spring.openapi.version>1.6.4</spring.openapi.version>
        <!-- <lombok.version>1.18.26</lombok.version> should not override the spring-boot version configuration -->
     </properties>
 
@@ -68,6 +69,12 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
             <version>${mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <!-- The springdoc-openapi dependency already includes Swagger UI and also supports swagger-ui properties-->
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${spring.openapi.version}</version>
         </dependency>
     </dependencies>
     <build>
