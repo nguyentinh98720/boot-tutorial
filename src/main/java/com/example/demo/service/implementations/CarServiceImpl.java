@@ -5,6 +5,8 @@ package com.example.demo.service.implementations;
 
 import java.util.List;
 
+import javax.persistence.EntityNotFoundException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +40,8 @@ public class CarServiceImpl implements CarService {
     @Override
     public CarDto getCarById(Long id) {
 
-        Car car = repository.findById(id);
+        Car car = repository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
 
         return mapper.toDto(car);
     }
@@ -58,11 +61,8 @@ public class CarServiceImpl implements CarService {
 
         Long carId = dto.getId();
 
-        Car existingCar = repository.findById(carId);
-
-        if (existingCar == null) {
-            return false;
-        }
+        Car existingCar = repository.findById(carId)
+                .orElseThrow(EntityNotFoundException::new);
 
         existingCar = mapper.updateEntity(dto, existingCar);
 
@@ -74,11 +74,8 @@ public class CarServiceImpl implements CarService {
     @Override
     public boolean removeExistingCar(Long id) {
 
-        Car existingCar = repository.findById(id);
-
-        if (existingCar == null) {
-            return false;
-        }
+        Car existingCar = repository.findById(id)
+                .orElseThrow(EntityNotFoundException::new);
 
         repository.delete(existingCar);
 

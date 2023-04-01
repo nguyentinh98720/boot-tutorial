@@ -22,8 +22,6 @@ import com.example.demo.service.CarService;
 /**
  * @created Mar 26, 2023
  *
- * TODO Tìm hiểu về REST API, RESTful API
- * - Sự khác nhau giữa RestController và Controller trong spring
  */
 @RestController
 @RequestMapping("/api/car")
