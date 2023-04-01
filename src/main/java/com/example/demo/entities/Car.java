@@ -16,7 +16,9 @@ import javax.persistence.Table;
  */
 @Entity
 @Table(name = "car")
-public class Car {
+public class Car extends AbstractAuditingEntity<Long> {
+
+    private static final long serialVersionUID = 6517177107040400497L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
