@@ -76,6 +76,10 @@
             <artifactId>springdoc-openapi-ui</artifactId>
             <version>${spring.openapi.version}</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <!-- Default goal -->
@@ -111,6 +115,11 @@
                         <!-- lombok-mapstruct-binding is necessary for these two libraries to work together. -->
                         <!-- Without Lombok, only the mapstruct-processor would be needed at this point. -->
                     </annotationProcessorPaths>
+                    <compilerArgs>
+                        <arg>
+                            -Amapstruct.defaultComponentModel=spring
+                        </arg>
+                    </compilerArgs>
                 </configuration>
             </plugin>
         </plugins>

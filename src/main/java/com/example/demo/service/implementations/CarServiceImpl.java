@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dtos.CarDto;
-import com.example.demo.entities.Car;
+import com.example.demo.entities.dealer.Car;
 import com.example.demo.mapper.CarMapper;
-import com.example.demo.repository.CarRepository;
+import com.example.demo.repository.dealer.CarRepository;
 import com.example.demo.service.CarService;
 
 /**

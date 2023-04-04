@@ -9,14 +9,13 @@ import org.mapstruct.Mapper;
 import org.mapstruct.MappingTarget;
 
 import com.example.demo.dtos.CarDto;
-import com.example.demo.entities.Car;
+import com.example.demo.entities.dealer.Car;
 
 /**
  * @created Mar 26, 2023
  *
  */
-// TODO use default component model setting when compiling
-@Mapper(componentModel = "spring")
+@Mapper
 public interface CarMapper {
 
     CarDto toDto(Car entity);

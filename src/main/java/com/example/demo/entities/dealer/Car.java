@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.example.demo.entities;
+package com.example.demo.entities.dealer;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +9,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import com.example.demo.entities.AbstractAuditingEntity;
 
 /**
  * @created Mar 26, 2023

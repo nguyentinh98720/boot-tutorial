@@ -25,9 +25,6 @@ import lombok.experimental.SuperBuilder;
  * @since Apr 1, 2023
  *
  */
-/*
- * TODO why to extends this entity?
- */
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
 @SuperBuilder
@@ -39,21 +36,21 @@ public abstract class AbstractAuditingEntity<T> implements Serializable {
 
     public abstract T getId();
 
-    // TODO remove default value when complete security configuration
     @CreatedBy
     @Column(name = "created_by", nullable = false, length = 50, updatable = false)
 //  private String createdBy;
-    @Default private String createdBy = "system_demo"; // for demo project
+    @Default
+    private String createdBy = "system"; // update with AuditorAware
 
     @CreatedDate
     @Column(name = "created_date", updatable = false)
     private Instant createdDate = Instant.now();
 
-    // TODO remove default value when complete security configuration
     @LastModifiedBy
     @Column(name = "last_modified_by", length = 50)
 //  private String lastModifiedBy;
-    @Default private String lastModifiedBy = "system_demo"; // for demo project
+    @Default
+    private String lastModifiedBy = "system"; // update with AuditorAware
 
     @LastModifiedDate
     @Column(name = "last_modified_date")

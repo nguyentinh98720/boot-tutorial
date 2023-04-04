@@ -37,4 +37,6 @@ public class DemoTitle extends AbstractAuditingEntity<Long> {
     private Long roleId;
 
     private String definition;
+
+    private boolean primaryTitle;
 }
